@@ -1,0 +1,72 @@
+{
+  "league": {
+    "id": "4353138d-4c22-4396-95d8-5f587d2df25c",
+    "name": "NBA",
+    "alias": "NBA"
+  },
+  "season": {
+    "id": "5ba3cd4d-495b-4683-bfbe-56ba2eb84cf2",
+    "year": 2014,
+    "type": "PST"
+  },
+  "series": [{
+    "id": "00feb95c-9af2-45bc-83a8-cf44e85b3ce3",
+    "title": "Eastern Conference - First Round - BOS vs CLE",
+    "status": "inprogress",
+    "round": 1,
+    "start_date": "2015-04-19",
+    "participants": [{
+      "name": "Celtics",
+      "seed": 7,
+      "record": 0,
+      "team": {
+        "id": "583eccfa-fb46-11e1-82cb-f4ce4684ea4c",
+        "name": "Celtics",
+        "alias": "BOS",
+        "market": "Boston"
+      }
+    }, {
+      "name": "Cavaliers",
+      "seed": 2,
+      "record": 1,
+      "team": {
+        "id": "583ec773-fb46-11e1-82cb-f4ce4684ea4c",
+        "name": "Cavaliers",
+        "alias": "CLE",
+        "market": "Cleveland"
+      }
+    }],
+    "games": [{
+      "id": "67b9b8b9-2889-4e18-abb1-0610f53ef187",
+      "title": "Game 1",
+      "status": "closed",
+      "coverage": "full",
+      "scheduled": "2015-04-19T19:00:00+00:00",
+      "venue": {
+        "id": "42cddf7a-0e1f-5f91-ae6f-c620582fdb01",
+        "name": "Quicken Loans Arena",
+        "capacity": 20562,
+        "address": "One Center Court",
+        "city": "Cleveland",
+        "state": "OH",
+        "zip": "44115",
+        "country": "USA"
+      },
+      "broadcast": {
+        "network": "ABC"
+      },
+      "home": {
+        "name": "Cleveland Cavaliers",
+        "alias": "CLE",
+        "seed": 2,
+        "id": "583ec773-fb46-11e1-82cb-f4ce4684ea4c"
+      },
+      "away": {
+        "name": "Boston Celtics",
+        "alias": "BOS",
+        "seed": 7,
+        "id": "583eccfa-fb46-11e1-82cb-f4ce4684ea4c"
+      }
+    }]
+  }]
+}

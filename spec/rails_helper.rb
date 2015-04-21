@@ -59,4 +59,8 @@ RSpec.configure do |config|
       DatabaseCleaner.clean
     end
   end
+
+  def load_fixture(name)
+    JSON.parse(File.read("#{Rails.root}/spec/fixtures/#{name}.json")).with_indifferent_access
+  end
 end
