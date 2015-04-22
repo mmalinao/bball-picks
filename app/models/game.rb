@@ -2,6 +2,8 @@ class Game < ActiveRecord::Base
   self.primary_key = 'id'
 
   belongs_to :series, inverse_of: :games
+  belongs_to :home_team, class_name: 'Team'
+  belongs_to :away_team, class_name: 'Team'
 
   validates :title, :status, :coverage, :scheduled, presence: true
   validates :id, presence: true, uniqueness: true

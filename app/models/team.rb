@@ -1,6 +1,9 @@
 class Team < ActiveRecord::Base
   self.primary_key = 'id'
 
+  has_many :home_games, class_name: 'Game', foreign_key: 'home_game_id'
+  has_many :away_games, class_name: 'Game', foreign_key: 'away_game_id'
+
   validates :id, presence: true, uniqueness: true
   validates :name, :alias_name, :market, presence: true
 

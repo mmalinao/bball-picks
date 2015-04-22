@@ -11,20 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421053346) do
+ActiveRecord::Schema.define(version: 20150422034226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", id: false, force: :cascade do |t|
-    t.string   "id",        null: false
+    t.string   "id",           null: false
     t.string   "title"
     t.string   "status"
     t.string   "coverage"
     t.datetime "scheduled"
     t.string   "series_id"
+    t.string   "home_team_id"
+    t.string   "away_team_id"
   end
 
+  add_index "games", ["away_team_id"], name: "index_games_on_away_team_id", using: :btree
+  add_index "games", ["home_team_id"], name: "index_games_on_home_team_id", using: :btree
   add_index "games", ["id"], name: "index_games_on_id", unique: true, using: :btree
   add_index "games", ["series_id"], name: "index_games_on_series_id", using: :btree
 
