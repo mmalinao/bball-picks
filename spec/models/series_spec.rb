@@ -16,6 +16,10 @@ RSpec.describe Series, type: :model do
     let(:data) { load_fixture 'series' }
     let(:new_series) { Series.last }
     let(:new_game) { Game.last }
+
+    let!(:home_team) { FactoryGirl.create(:team, id: '583ec773-fb46-11e1-82cb-f4ce4684ea4c') }
+    let!(:away_team) { FactoryGirl.create(:team, id: '583eccfa-fb46-11e1-82cb-f4ce4684ea4c') }
+
     before(:each) { allow(SportRadarApi).to receive(:schedules).and_return(data) }
 
     it 'should create a new series' do
@@ -24,6 +28,12 @@ RSpec.describe Series, type: :model do
 
     it 'should create a new game' do
       expect { do_action }.to change { Game.count }.by(1)
+    end
+
+    it 'should assign home/away teams to each game' do
+      expect { do_action }.to_not change { Team.count }
+      expect(new_game.reload.home_team).to eq home_team
+      expect(new_game.reload.away_team).to eq away_team
     end
 
     it 'should create a new associated game' do

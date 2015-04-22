@@ -13,7 +13,7 @@ class Game < ActiveRecord::Base
   end
 
   def refresh_from(game_data)
-    assign_attributes game_data.slice(*Game.permitted_params)
+    assign_attributes game_data.slice(*Game.permitted_params).merge!(home_team_id: game_data[:home][:id], away_team_id: game_data[:away][:id])
     save
   end
 end
