@@ -61,6 +61,8 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+    composite_primary_keys (8.1.0)
+      activerecord (~> 4.2.0)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     devise (3.4.1)
@@ -279,6 +281,7 @@ DEPENDENCIES
   better_errors
   byebug
   coffee-rails (~> 4.1.0)
+  composite_primary_keys (= 8.1)
   database_cleaner
   devise
   factory_girl_rails
