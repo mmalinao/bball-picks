@@ -14,4 +14,8 @@ class SportRadarApi
   def self.teams
     (get '/nba-t3/league/hierarchy.json', OPTIONS).parsed_response.with_indifferent_access
   end
+
+  def self.game_summary(game_id)
+    (get "/nba-t3/games/#{game_id}/summary.json", OPTIONS).parsed_response.with_indifferent_access
+  end
 end
