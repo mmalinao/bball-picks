@@ -3,4 +3,13 @@ class GameStats < ActiveRecord::Base
 
   belongs_to :game
   belongs_to :player
+
+  def self.permitted_params
+    [:points]
+  end
+
+  def refresh_from(stats)
+    assign_attributes stats.slice(*GameStats.permitted_params)
+    save
+  end
 end
