@@ -8,18 +8,23 @@ class Series < ActiveRecord::Base
 
   def self.refresh
     data = SportRadarApi.schedules
-    data[:series].each { |series_data| Series.refresh_from series_data }
-  end
-
-  def self.refresh_from(series_data)
-    series = Series.where(id: series_data[:id]).first_or_initialize
-    series.assign_attributes series_data.slice(*Series.permitted_params)
-    series_data[:games].each { |game_data| Game.refresh_from(game_data.merge!(series_id: series_data[:id])) }
-
-    series.save
+    data[:series].each do |series_data|
+      series = Series.where(id: series_data[:id]).first_or_initialize
+      series.refresh_from(series_data)
+    end
   end
 
   def self.permitted_params
     [:title, :status, :start_date, :round]
+  end
+
+  def refresh_from(series_data)
+    assign_attributes series_data.slice(*Series.permitted_params)
+    series_data[:games].each do |game_data|
+      game = Game.where(id: game_data[:id]).first_or_initialize
+      game.refresh_from(game_data.merge!(series_id: series_data[:id]))
+    end
+
+    save
   end
 end

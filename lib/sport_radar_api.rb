@@ -10,4 +10,8 @@ class SportRadarApi
   def self.schedules
     (get '/nba-t3/series/2014/PST/schedule.json', OPTIONS).parsed_response.with_indifferent_access
   end
+
+  def self.teams
+    (get '/nba-t3/league/hierarchy.json', OPTIONS).parsed_response.with_indifferent_access
+  end
 end

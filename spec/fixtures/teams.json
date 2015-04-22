@@ -1,0 +1,33 @@
+{
+  "league": {
+    "id": "4353138d-4c22-4396-95d8-5f587d2df25c",
+    "name": "NBA",
+    "alias": "NBA"
+  },
+  "conferences": [{
+    "id": "3960cfac-7361-4b30-bc25-8d393de6f62f",
+    "name": "EASTERN CONFERENCE",
+    "alias": "EASTERN",
+    "divisions": [{
+      "id": "54dc7348-c1d2-40d8-88b3-c4c0138e085d",
+      "name": "Southeast",
+      "alias": "SOUTHEAST",
+      "teams": [{
+        "id": "583ec8d4-fb46-11e1-82cb-f4ce4684ea4c",
+        "name": "Wizards",
+        "market": "Washington",
+        "alias": "WAS",
+        "venue": {
+          "id": "f62d5b49-d646-56e9-ba60-a875a00830f8",
+          "name": "Verizon Center",
+          "capacity": 20290,
+          "address": "601 F St. N.W.",
+          "city": "Washington",
+          "state": "DC",
+          "zip": "20004",
+          "country": "USA"
+        }
+      }]
+    }]
+  }]
+}
