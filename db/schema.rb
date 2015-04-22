@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422050312) do
+ActiveRecord::Schema.define(version: 20150422062845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,14 +55,16 @@ ActiveRecord::Schema.define(version: 20150422050312) do
   add_index "games", ["series_id"], name: "index_games_on_series_id", using: :btree
 
   create_table "players", id: false, force: :cascade do |t|
-    t.string "id",               null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.string "position"
-    t.string "primary_position"
-    t.string "jersey_number"
+    t.string  "id",                       null: false
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "position"
+    t.string  "primary_position"
+    t.string  "jersey_number"
+    t.integer "fantasy_draft_manager_id"
   end
 
+  add_index "players", ["fantasy_draft_manager_id"], name: "index_players_on_fantasy_draft_manager_id", using: :btree
   add_index "players", ["id"], name: "index_players_on_id", unique: true, using: :btree
 
   create_table "series", id: false, force: :cascade do |t|
