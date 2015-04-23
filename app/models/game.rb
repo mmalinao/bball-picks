@@ -16,4 +16,8 @@ class Game < ActiveRecord::Base
     assign_attributes game_data.slice(*Game.permitted_params).merge!(home_team_id: game_data[:home][:id], away_team_id: game_data[:away][:id])
     save
   end
+
+  def display_title
+    "#{away_team.alias_name} @ #{home_team.alias_name} - #{title}"
+  end
 end

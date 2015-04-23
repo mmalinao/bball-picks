@@ -11,4 +11,16 @@ RSpec.describe Game, type: :model do
   it { is_expected.to validate_presence_of :coverage }
   it { is_expected.to validate_presence_of :scheduled }
   it { is_expected.to validate_uniqueness_of :id }
+
+  describe '#display_title' do
+    subject { game.display_title }
+
+    let(:game) { FactoryGirl.create(:game, home_team: home_team, away_team: away_team) }
+    let(:home_team) { FactoryGirl.create(:team) }
+    let(:away_team) { FactoryGirl.create(:team) }
+
+    it 'should display Away Team @ Home Team - Game #' do
+      is_expected.to eq "#{away_team.alias_name} @ #{home_team.alias_name} - #{game.title}"
+    end
+  end
 end
