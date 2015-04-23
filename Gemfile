@@ -46,6 +46,8 @@ gem 'composite_primary_keys', '=8.1'
 gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'active_skin'
 
+gem 'browser-timezone-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
