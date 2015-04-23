@@ -18,4 +18,8 @@ class SportRadarApi
   def self.game_summary(game_id)
     (get "/nba-t3/games/#{game_id}/summary.json", OPTIONS).parsed_response.with_indifferent_access
   end
+
+  def self.player_profile(player_id)
+    (get "/nba-t3/players/#{player_id}/profile.json", OPTIONS).parsed_response.with_indifferent_access
+  end
 end
