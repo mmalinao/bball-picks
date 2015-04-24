@@ -23,4 +23,55 @@ RSpec.describe Game, type: :model do
       is_expected.to eq "#{away_team.alias_name} @ #{home_team.alias_name} - #{game.title}"
     end
   end
+
+  describe '#closed?' do
+    subject { game.closed? }
+    let(:game) { FactoryGirl.create(:game, :closed) }
+
+    it { is_expected.to be_truthy }
+
+    context 'when game inprogress' do
+      let(:game) { FactoryGirl.create(:game, :inprogress) }
+      it { is_expected.to be_falsey }
+    end
+
+    context 'when game scheduled' do
+      let(:game) { FactoryGirl.create(:game, :scheduled) }
+      it { is_expected.to be_falsey }
+    end
+  end
+
+  describe '#inprogress?' do
+    subject { game.inprogress? }
+    let(:game) { FactoryGirl.create(:game, :inprogress) }
+
+    it { is_expected.to be_truthy }
+
+    context 'when game closed' do
+      let(:game) { FactoryGirl.create(:game, :closed) }
+      it { is_expected.to be_falsey }
+    end
+
+    context 'when game scheduled' do
+      let(:game) { FactoryGirl.create(:game, :scheduled) }
+      it { is_expected.to be_falsey }
+    end
+  end
+
+  describe '#scheduled?' do
+    subject { game.scheduled? }
+    let(:game) { FactoryGirl.create(:game, :scheduled) }
+
+    it { is_expected.to be_truthy }
+
+    context 'when game closed' do
+      let(:game) { FactoryGirl.create(:game, :closed) }
+      it { is_expected.to be_falsey }
+    end
+
+    context 'when game inprogress' do
+      let(:game) { FactoryGirl.create(:game, :inprogress) }
+      it { is_expected.to be_falsey }
+    end
+  end
 end

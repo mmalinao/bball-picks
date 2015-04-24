@@ -20,4 +20,16 @@ class Game < ActiveRecord::Base
   def display_title
     "#{away_team.alias_name} @ #{home_team.alias_name} - #{title}"
   end
+
+  def closed?
+    status == 'closed'
+  end
+
+  def inprogress?
+    status == 'inprogress'
+  end
+
+  def scheduled?
+    status == 'scheduled'
+  end
 end
