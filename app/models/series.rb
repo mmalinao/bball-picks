@@ -6,6 +6,10 @@ class Series < ActiveRecord::Base
   validates :id, presence: true, uniqueness: true
   validates :title, :status, :start_date, :round, presence: true
 
+  scope :closed, -> { where(status: 'closed') }
+  scope :inprogress, -> { where(status: 'inprogress') }
+  scope :scheduled, -> { where(status: 'scheduled') }
+
   def self.refresh
     data = SportRadarApi.schedules
     data[:series].each do |series_data|
