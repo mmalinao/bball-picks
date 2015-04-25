@@ -9,6 +9,8 @@ RSpec.describe Admin::SeriesController, type: :controller do
     let(:user) { FactoryGirl.create(:user, :regular) }
     let!(:series) { FactoryGirl.create(:series) }
 
+    before(:each) { allow(Series).to receive(:refresh) }
+
     it 'should not refresh series and game schedules' do
       expect(Series).to_not receive(:refresh)
       do_post
