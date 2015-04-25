@@ -9,4 +9,12 @@ class User < ActiveRecord::Base
   has_many :picks, class_name: 'Player', foreign_key: 'fantasy_draft_manager_id'
 
   validates :user_name, presence: true
+
+  def total_points
+    points = 0
+    picks.includes(:game_stats).each do |pick|
+      points += pick.game_stats.sum(:points)
+    end
+    points
+  end
 end
