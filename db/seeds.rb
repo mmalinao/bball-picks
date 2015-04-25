@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!([
-  {email: "matt.malinao@robotsandpencils.com", encrypted_password: "$2a$10$7/i7i/TdyZMwQSP9sUAk4uclKPG2JJaP0XqOiDZE11jzowK1jqR8i", user_name: "matt.malinao", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2015-04-23 01:44:35", last_sign_in_at: "2015-04-22 06:47:45", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", role: 1},
-  {email: "mike.greening@robotsandpencils.com", encrypted_password: "$2a$10$lTPTMPZ2IuFa/2RHf1rSou7B8xzeko.HqMUyyclS8NXbECRUzQvPe", user_name: "mike.greening", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, role: 0},
-  {email: "jason.matthison@robotsandpencils.com", encrypted_password: "$2a$10$Jzxk5eOi90nEutNXCPHyguQ9TJ2N6QIcxx2jatEc3rEC8dS5f/UwW", user_name: "jason.matthison", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, role: 0}
+  {email: "matt.malinao@robotsandpencils.com", password: 'password', password_confirmation: 'password', user_name: "matt.malinao", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2015-04-23 01:44:35", last_sign_in_at: "2015-04-22 06:47:45", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", role: 1},
+  {email: "mike.greening@robotsandpencils.com", password: 'password', password_confirmation: 'password', user_name: "mike.greening", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, role: 0},
+  {email: "jason.matthison@robotsandpencils.com", password: 'password', password_confirmation: 'password', user_name: "jason.matthison", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, role: 0}
 ])
 Game.create!([
   {title: "Game 3", status: "closed", coverage: "full", scheduled: "2015-04-25 01:30:00", series_id: "7ff59944-6a29-43c4-ab68-f9b8e16a7100", home_team_id: "583ecd4f-fb46-11e1-82cb-f4ce4684ea4c", away_team_id: "583ecdfb-fb46-11e1-82cb-f4ce4684ea4c"},
