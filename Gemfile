@@ -46,7 +46,11 @@ gem 'composite_primary_keys', '=8.1'
 gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'active_skin'
 
+# Handle Timezones
 gem 'browser-timezone-rails'
+
+# Generate Seed files
+gem 'seed_dump'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -81,4 +85,5 @@ group :development do
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
   gem 'better_errors'
+  gem 'quiet_assets'
 end
