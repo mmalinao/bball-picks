@@ -3,6 +3,7 @@ class Player < ActiveRecord::Base
 
   belongs_to :fantasy_draft_manager, class_name: 'User'
   belongs_to :team
+  has_many :game_stats, class_name: 'GameStats'
 
   validates :first_name, :last_name, :position, :primary_position, :jersey_number, presence: true
   validates :id, presence: true, uniqueness: true
@@ -22,5 +23,9 @@ class Player < ActiveRecord::Base
 
   def refresh_from(player_data)
     assign_attributes player_data.slice(*Player.permitted_params)
+  end
+
+  def total_points
+    GameStats.where(player: self).sum(:points)
   end
 end

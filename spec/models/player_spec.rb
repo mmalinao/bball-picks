@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Player, type: :model do
   it { is_expected.to belong_to(:fantasy_draft_manager).class_name('User') }
-  it { is_expected.to belong_to(:team) }
+  it { is_expected.to belong_to :team }
+  it { is_expected.to have_many :game_stats }
 
   it { is_expected.to validate_presence_of :id }
   it { is_expected.to validate_presence_of :first_name }
