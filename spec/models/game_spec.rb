@@ -24,6 +24,35 @@ RSpec.describe Game, type: :model do
     end
   end
 
+  describe '#refresh_stats' do
+    subject(:do_action) { game.refresh_stats }
+
+    let(:data) { load_fixture 'game_summary' }
+    let(:game) { FactoryGirl.create(:game, id: '67b9b8b9-2889-4e18-abb1-0610f53ef187') }
+
+    before(:each) { allow(SportRadarApi).to receive(:game_summary).with(game.id).and_return(data) }
+
+    it 'should update game attributes' do
+      expect { do_action }.to change { game.reload.attributes }
+    end
+
+    it 'should create a new game summary' do
+      expect { do_action }.to change { GameSummary.count }.by(1)
+    end
+
+    context 'when game summary already exists' do
+      let!(:game_summary) { FactoryGirl.create(:game_summary, id: game.id) }
+
+      it 'should not create a new game summary' do
+        expect { do_action }.to_not change { GameSummary.count }
+      end
+
+      it 'should update existing game summary attributes' do
+        expect { do_action }.to change { game_summary.reload.attributes }
+      end
+    end
+  end
+
   describe '#closed?' do
     subject { game.closed? }
     let(:game) { FactoryGirl.create(:game, :closed) }

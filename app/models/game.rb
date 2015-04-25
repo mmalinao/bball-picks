@@ -8,8 +8,30 @@ class Game < ActiveRecord::Base
   validates :title, :status, :coverage, :scheduled, presence: true
   validates :id, presence: true, uniqueness: true
 
+  scope :closed, -> { where(status: 'closed') }
+  scope :inprogress, -> { where(status: 'inprogress') }
+  scope :scheduled, -> { where(status: 'scheduled') }
+  scope :inprogress_or_scheduled, -> { where(status: ['inprogress', 'scheduled']) }
+
   def self.permitted_params
     [:title, :status, :coverage, :scheduled, :series_id]
+  end
+
+  # def refresh(force = false)
+  #   if !closed? || force
+  #     refresh_stats
+  #     true
+  #   else
+  #     false
+  #   end
+  # end
+
+  def refresh_stats
+    game_summary_data = SportRadarApi.game_summary(id)
+    refresh_from(game_summary_data)
+
+    game_summary = GameSummary.where(id: game_summary_data[:id]).first_or_initialize
+    game_summary.refresh_from(game_summary_data)
   end
 
   def refresh_from(game_data)
