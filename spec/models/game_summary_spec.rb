@@ -23,7 +23,7 @@ RSpec.describe GameSummary, type: :model do
       expect { do_action }.to change { GameSummary.count }.by(1)
     end
 
-    it 'should not creae a new game' do
+    it 'should not create a new game' do
       expect { do_action }.to_not change { Game.count }
     end
 

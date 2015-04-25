@@ -28,4 +28,12 @@ class Player < ActiveRecord::Base
   def total_points
     GameStats.where(player: self).sum(:points)
   end
+
+  def total_points_info
+    "#{total_points} points in #{game_stats.count} games"
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

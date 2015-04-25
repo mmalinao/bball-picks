@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
     end
     points
   end
+
+  def top_pick
+    top_pick = picks.max_by { |pick| pick.total_points }
+  end
 end
