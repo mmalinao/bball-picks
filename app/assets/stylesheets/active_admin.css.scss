@@ -11,7 +11,7 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 
-$skinLogo: url('r&p-logo.png') no-repeat center;
+$skinLogo: image-url('r&p-logo.png') no-repeat center;
 
 $skinActiveColor: #C32C2E;
 $skinHeaderBck: #000000;
